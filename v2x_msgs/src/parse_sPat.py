@@ -2,7 +2,8 @@
 #-*- coding: utf-8 -*-
 
 import struct
-import rospy, socket
+import rospy, socket, time
+
 from v2x_msgs.msg import SPATStatesList, SPATStates
 
 MCAST_GROUP = '127.0.0.1' #멀티캐스트 서버IP
@@ -19,6 +20,7 @@ class V2XdataParse2ROS:
             self.spat_ros_msg = self.processing_to_ros_msg(self.v2x_data)
             # print(self.v2x_data)
             self.v2x_pub.publish(self.spat_ros_msg)
+            time.sleep(0.01)
 
     def multicast_recieve(self, group, port, is_all_groups):
         sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM,socket.IPPROTO_UDP)
@@ -40,6 +42,7 @@ class V2XdataParse2ROS:
     def processing_to_ros_msg(self, msg):
         msgs = msg.split(',')
         # print("length of spat msg list : "+str(len(msg)))
+        print(msgs[1])
         self.spat_msg = SPATStatesList()
         self.spat_msg.name = msgs[1]
         self.spat_msg.intersection.region = int(msgs[2])
