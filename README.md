@@ -11,6 +11,8 @@ Team : BISA (Keimyung Univ)
 
 ![unknown](https://user-images.githubusercontent.com/71008546/180376082-ec3869d9-dfa5-4400-90ec-cbb88b0de883.png)
 
+### 22.07.27 UDP 유니캐스트로 변경
+
 #### Define new message types for sPat   
 ![msg](https://user-images.githubusercontent.com/71008546/180377385-2306e5fa-4b99-4ab3-aefb-cd588f26011d.png)
 
