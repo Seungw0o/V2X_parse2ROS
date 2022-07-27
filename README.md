@@ -1,7 +1,7 @@
 # V2X_parse2ROS
 V2X msg parsing to ROS message
 
-this source was created for 2022 College Student Autonomous Driving Competition (Ministry of Trade, Industry and Energy)
+this source was developed for 2022 College Student Autonomous Driving Competition (Ministry of Trade, Industry and Energy)
 
 Author : swooeun   
 Team : BISA (Keimyung Univ)
