@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.tcc": "c",
+        "list": "c",
+        "initializer_list": "c",
+        "limits": "c",
+        "type_traits": "c",
+        "*.txx": "c",
+        "movementevent.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

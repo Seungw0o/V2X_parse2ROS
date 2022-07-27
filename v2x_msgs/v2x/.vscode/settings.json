@@ -48,6 +48,9 @@
         "sample.h": "c",
         "fcntl.h": "c",
         "stdio.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "asn_sequence_of.h": "c",
+        "constr_sequence_of.h": "c",
+        "bitset": "c"
     }
 }

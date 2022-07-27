@@ -176,41 +176,41 @@ int fill_j2735_pvd(MessageFrame_t *dst)
 
     //Interface
     printf(">> Parse J2735 : PVD\n");
-    printf("    probeID : %s:%s:%s:0%s\n", a,b,c,d);
-    printf("    startVector\n");
-    printf("     ㄴ utcTime\n");
-    printf("     \tㄴ year : %ld\n", *ptrPvd->startVector.utcTime->year);
-    printf("     \tㄴ month: %ld\n", *ptrPvd->startVector.utcTime->month);
-    printf("     \tㄴ day : %ld\n", *ptrPvd->startVector.utcTime->day);
-    printf("     \tㄴ hour : %ld\n", *ptrPvd->startVector.utcTime->hour);
-    printf("     \tㄴ minute : %ld\n", *ptrPvd->startVector.utcTime->minute);
-    printf("     \tㄴ sec : %ld\n", *ptrPvd->startVector.utcTime->second);
-    printf("     Long : %ld\n", ptrPvd->startVector.Long);
-    printf("     lat : %ld\n", ptrPvd->startVector.lat);
-    printf("     elevation : %ld\n", *ptrPvd->startVector.elevation);
-    printf("     heading : %ld\n", *ptrPvd->startVector.heading);
-    printf("     speed\n");
-    printf("      ㄴ speed : %ld\n", ptrPvd->startVector.speed->speed);
-    printf("      ㄴ transmission : %ld\n", ptrPvd->startVector.speed->transmisson);
-    printf("    vehicleType\n");
-    printf("\thpmsType : %ld\n", *ptrPvd->vehicleType.hpmsType);
+    // printf("    probeID : %s:%s:%s:0%s\n", a,b,c,d);
+    // printf("    startVector\n");
+    // printf("     ㄴ utcTime\n");
+    // printf("     \tㄴ year : %ld\n", *ptrPvd->startVector.utcTime->year);
+    // printf("     \tㄴ month: %ld\n", *ptrPvd->startVector.utcTime->month);
+    // printf("     \tㄴ day : %ld\n", *ptrPvd->startVector.utcTime->day);
+    // printf("     \tㄴ hour : %ld\n", *ptrPvd->startVector.utcTime->hour);
+    // printf("     \tㄴ minute : %ld\n", *ptrPvd->startVector.utcTime->minute);
+    // printf("     \tㄴ sec : %ld\n", *ptrPvd->startVector.utcTime->second);
+    // printf("     Long : %ld\n", ptrPvd->startVector.Long);
+    // printf("     lat : %ld\n", ptrPvd->startVector.lat);
+    // printf("     elevation : %ld\n", *ptrPvd->startVector.elevation);
+    // printf("     heading : %ld\n", *ptrPvd->startVector.heading);
+    // printf("     speed\n");
+    // printf("      ㄴ speed : %ld\n", ptrPvd->startVector.speed->speed);
+    // printf("      ㄴ transmission : %ld\n", ptrPvd->startVector.speed->transmisson);
+    // printf("    vehicleType\n");
+    // printf("\thpmsType : %ld\n", *ptrPvd->vehicleType.hpmsType);
     for (int i=0; i < ptrPvd->snapshots.list.count; i++){
-        printf("    snapshots[%d]\n", i);
-        printf("\tthePosition\n");
-        printf("         ㄴ utcTime\n");
-        printf("\t      ㄴ year : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->year);
-        printf("\t      ㄴ month: %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->month);
-        printf("\t      ㄴ day : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->day);
-        printf("\t      ㄴ hour : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->hour);
-        printf("\t      ㄴ minute : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->minute);
-        printf("\t      ㄴ sec : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->second);
-        printf("     Long : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.Long);
-        printf("     lat : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.lat);
-        printf("     elevation : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.elevation);
-        printf("     heading : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.heading);
-        printf("     speed\n");
-        printf("      ㄴ speed : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.speed->speed);
-        printf("      ㄴ transmission : %ld\n\n", ptrPvd->snapshots.list.array[i]->thePosition.speed->transmisson);
+    //     printf("    snapshots[%d]\n", i);
+    //     printf("\tthePosition\n");
+    //     printf("         ㄴ utcTime\n");
+    //     printf("\t      ㄴ year : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->year);
+    //     printf("\t      ㄴ month: %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->month);
+    //     printf("\t      ㄴ day : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->day);
+    //     printf("\t      ㄴ hour : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->hour);
+    //     printf("\t      ㄴ minute : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->minute);
+    //     printf("\t      ㄴ sec : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.utcTime->second);
+    //     printf("     Long : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.Long);
+    //     printf("     lat : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.lat);
+    //     printf("     elevation : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.elevation);
+    //     printf("     heading : %ld\n", *ptrPvd->snapshots.list.array[i]->thePosition.heading);
+    //     printf("     speed\n");
+    //     printf("      ㄴ speed : %ld\n", ptrPvd->snapshots.list.array[i]->thePosition.speed->speed);
+    //     printf("      ㄴ transmission : %ld\n\n", ptrPvd->snapshots.list.array[i]->thePosition.speed->transmisson);
     }
     return 0;
 }
@@ -248,7 +248,7 @@ LabveiwData_t socket_server(){
         continue;
         }
     else{
-        printf("수신 내용 : %s\n", buf);
+        // printf("수신 내용 : %s\n", buf);
         char *ptr = strtok(buf, ",");      // " " 공백 문자를 기준으로 문자열을 자름, 포인터 반환
         int k=0;
         while (ptr != NULL)               // 자른 문자열이 나오지 않을 때까지 반복

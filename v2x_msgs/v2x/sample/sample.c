@@ -32,7 +32,7 @@ int connect_obu_uper_tcp(char*ip, unsigned short port){
         return -1;
     }
     
-    // TCP 서버 주소, 포트 입력
+    // TCP 서버 주소, 포트 입력+
     struct sockaddr_in addr; 
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
@@ -62,8 +62,9 @@ int receive_from_obu(int sockFd, char *buffer, unsigned short bufferSize, int st
     int rxSize = -1;
     *uperRes = 0;
     
-    if(sockFd < 0)
+    if(sockFd < 0){
         return rxSize;
+    }
     int leftBufferSize = bufferSize - storedSize;
 
     if(leftBufferSize <= 0)
@@ -79,18 +80,21 @@ int receive_from_obu(int sockFd, char *buffer, unsigned short bufferSize, int st
     //read 리턴값이 0 인 경우, Socket 로부터 Read가 불가능한 상태를 의미하며,
     //대표적으로 소켓 연결이 종료된 상태가 있음
     //리턴값이 -1 인 경우, non-blocking 소켓에 대해 수신된 데이터가 존재하지 않는 경우를 의미
-    if (rxSize == 0)
-       return -1; 
+    if (rxSize == 0){
+       return -1;
+    }
 
-    if(rxSize < 0 && storedSize == 0)
+    if(rxSize < 0 && storedSize == 0){
         // printf("수신된 데이터가 존재하지 않습니다\n");
         return 0;
+    }
     
-    if(rxSize > 0)
+    if(rxSize > 0){
         // printf("정상적으로 데이터 수신\n");
         // printf("rxsize : %d\n", rxSize);
         // printf("storedSize : %d\n", storedSize);
         storedSize += rxSize; 
+    }
     
     // CEST OBU TCP 헤더 파싱 부문
     int headerByteLen = sizeof(struct CestObuUperPacketHeader); 
@@ -103,8 +107,9 @@ int receive_from_obu(int sockFd, char *buffer, unsigned short bufferSize, int st
     
     packetLen += header.payloadLen;
 
-    if (storedSize < packetLen) 
+    if (storedSize < packetLen){
         return storedSize; 
+    }
 
     memcpy(uperBuffer,buffer + headerByteLen,header.payloadLen);
     *uperRes = header.payloadLen;
@@ -116,16 +121,18 @@ int receive_from_obu(int sockFd, char *buffer, unsigned short bufferSize, int st
         struct TxWaveUperResultPayload *payload = (struct TxWaveUperResultPayload*)uperBuffer;
         // printf("RX - \"TX_WAVE_UPER_ACK\" [%d/%d/%d]\n",payload->txWaveUperSeq,payload->resultCode,payload->size);
         *uperRes = 0;
-    }else 
+    }else{
         // printf("RX - \"RX_WAVE_UPER\" [%d] \n",header.payloadLen); 
 
     return storedSize;
+    }
 }
 
 int request_tx_wave_obu(int sockFd, char *uper,unsigned short uperLength){
 
-    if(sockFd < 0)
+    if(sockFd < 0){
         return -1;
+    }
 
     int packetLen = uperLength + sizeof(struct CestObuUperPacketHeader);
 
@@ -161,8 +168,9 @@ int tx_v2i_pvd(int sockFd, unsigned long long *time)
 { 
     unsigned long long interval = get_clock_time() - *time;  // msec;
 
-    if(interval < PVD_INTERVAL)
+    if(interval < PVD_INTERVAL){
         return 0;
+    }
     
     *time += (interval - interval%PVD_INTERVAL); 
  
@@ -190,8 +198,9 @@ int tx_v2v_bsm(int sockFd, unsigned long long *time){
 
     unsigned long long interval = get_clock_time() - *time;
  
-    if(interval < BSM_INTERVAL)
+    if(interval < BSM_INTERVAL){
         return 0; 
+    }
     
     *time += (interval - interval%BSM_INTERVAL);
 
@@ -202,8 +211,9 @@ int tx_v2v_bsm(int sockFd, unsigned long long *time){
        
     int encodedBits = encode_j2735_uper(uper,MAX_UPER_SIZE,msg);
     
-    if (encodedBits < 0) 
+    if (encodedBits < 0){
         return 0;
+    }
   
     int byteLen = encodedBits / 8 + ((encodedBits % 8)? 1:0);
 

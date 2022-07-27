@@ -16,11 +16,13 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   #  DIRECTORY msg
    FILES
-   SPATStates.msg
-   SPATStatesList.msg
-   IntersectionV2X.msg
+   IntersectionReferenceID.msg
+   IntersectionState.msg
+   IntersectionStateList.msg
    ManeuverAssistList.msg
-   StateTimeSpeed.msg
+   MovementEventList.msg
+   MovementState.msg
+   MovementStateList.msg
  )
 
 
