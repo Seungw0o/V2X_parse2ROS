@@ -20,7 +20,7 @@ Team : BISA (Keimyung Univ)
 ## Start
 <pre><code>cd your_workspace/src/v2x_msgs/v2x
 ./execc 
-rosrun v2x_msgs/parse_sPat.py
+rosrun v2x_msgs parse_sPat.py
 </code></pre>
 
 If you want to build a new source, 
